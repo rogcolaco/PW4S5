@@ -3,12 +3,12 @@ var app = express();
 
 
 function trataIndex (req, res) {
-  res.send("OlÃ¡, mas isso aqui estÃ¡ no .js");
+  res.send("Olá, mas isso aqui está no .js");
 }
 
 
 function trataSobre (req, res) {
-  res.send("resposta para a resquisiÃ§Ã£o no caminho /sobre");
+  res.send("resposta para a resquisição no caminho /sobre");
 }
 
 
