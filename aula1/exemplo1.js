@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 
 
+app.use("/html", express.static("html"));
+
 function trataIndex (req, res) {
   res.send("Olá, mas isso aqui está no .js");
 }
