@@ -5,7 +5,9 @@ const {body, validationResult} = require("express-validator");
 
 app.get("/", (req, res) => {
     console.log("Listagem geral de todos os cadastrdos");
-    res.send("Aqui deveria haver uma listagem...");
+    const banco = require("./conexao");
+    const alunos = await banco.listaTodos();
+    res.send(alunos);
 });
 
 app.listen(8080, function(){
