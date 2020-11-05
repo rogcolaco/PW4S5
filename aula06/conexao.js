@@ -24,4 +24,12 @@ async function listaTodos(){
     return resultado;
 }
 
-module.exports= {listaTodos}
+async function insereAluno(aluno){
+    console.log("Inserindo o aluno: " + aluno.nome);
+    const conexaoAtiva = await conecta();
+    const sql = "INSERT INTO alunos (nome, senha, idade) VALUES (?, ?, ?);";
+    const parametros=[aluno.nome, aluno.senha, aluno.idade];
+    return await conexaoAtiva.query(sql, parametros);
+}
+
+module.exports= {listaTodos, insereAluno}
