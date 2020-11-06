@@ -41,4 +41,13 @@ async function selectAluno(id){
     return resultado;
 }
 
-module.exports= {listaTodos, insereAluno, selectAluno}
+async function apagaAluno(id){
+    console.log("apagando aluno (id) " + id);
+    const conexaoAtiva = await conecta();
+    const sql = "delete from alunos where id = ?;";
+    const parametros = [id];
+    const [resultado] = await conexaoAtiva.query(sql, parametros);
+    return resultado;
+}
+
+module.exports= {listaTodos, insereAluno, selectAluno, apagaAluno}

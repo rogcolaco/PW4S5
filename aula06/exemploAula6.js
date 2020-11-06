@@ -45,7 +45,13 @@ app.get("/aluno/:idaluno?", async (req,res) => {
     } else {
         res.send("Favor inserir um código de aluno /aluno/<codigo>");
     }
-})
+});
+
+app.delete("/", async (req, res) => {
+    const banco = require("./conexao");
+    const resultado =  await banco.apagaAluno(req.body.idaluno);
+    res.send(resultado);
+});
 
 app.listen(8080, function(){
     console.log("Executando o servidor em http://127.0.0.1:8080")
