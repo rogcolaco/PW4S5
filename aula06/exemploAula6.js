@@ -33,6 +33,20 @@ app.post("/", [
         }
     });
 
+app.get("/aluno/:idaluno?", async (req,res) => {
+    if(req.params.idaluno){
+        const banco = require("./conexao");
+        const resultado =  await banco.selectAluno(req.params.idaluno);
+        res.send(resultado);
+
+        /*ALTENATIVAS DE RESPOSTA
+        
+        res.send("Informações sobre o aluno: " + resultado[0].nome) + "que tem idade "+ resultado[0].idade);*/
+    } else {
+        res.send("Favor inserir um código de aluno /aluno/<codigo>");
+    }
+})
+
 app.listen(8080, function(){
     console.log("Executando o servidor em http://127.0.0.1:8080")
 });

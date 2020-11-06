@@ -32,4 +32,13 @@ async function insereAluno(aluno){
     return await conexaoAtiva.query(sql, parametros);
 }
 
-module.exports= {listaTodos, insereAluno}
+async function selectAluno(id){
+    console.log("Buscando aluno (id): " + id);
+    const conexaoAtiva = await conecta();
+    const sql = "select * from alunos where id = ?;";
+    const parametros = [id];
+    const [resultado] = await conexaoAtiva.query(sql, parametros);
+    return resultado;
+}
+
+module.exports= {listaTodos, insereAluno, selectAluno}
