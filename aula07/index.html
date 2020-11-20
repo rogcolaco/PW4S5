@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste com React - aula 19/11</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <h1>Exemplo de React com JSX</h1>
+    <div id="posicao1"></div>
+    <div id="posicao2"></div>
+
+    <script type = "text/babel">
+            function Componente() {
+                return (
+                    <h2>Saída do componente gerado por função</h2>
+                )
+            }
+
+        function atualiza() {
+            const element = (
+                <div>
+                    <h2>Mais um exemplo de JSX, mas com visualização dinâmica</h2>
+                    <h3>Agora são {new Date().toLocaleTimeString()}</h3>
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById("posicao1"));
+        }
+
+        setInterval(atualiza,1000);
+
+        /* class ComponenteClasse extends React.Component {
+             render() {
+                 return (
+                     <div>
+                         <h2>Saida de componente gerado pela classe</h2>
+                         <h3>Segunda linda vinda da classe</h3>
+                     </div>
+                 )
+             }
+ 
+         }*/
+
+        ReactDOM.render(
+            <Componente />,
+            document.getElementById("posicao1")
+        );
+
+        /*ReactDOM.render(
+            <ComponenteClasse />,
+            document.getElementById("posicao2")
+        );*/
+
+    </script>
+</body>
+
+</html>
