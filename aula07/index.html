@@ -23,37 +23,45 @@
             )
         }
         /*ATUALIZA A CADA SEGUNDO (VER LINHA 35)*/
-/*         function atualiza() {
-            const element = (
-                <div>
-                    <h2>Mais um exemplo de JSX, mas com visualização dinâmica</h2>
-                    <h3>Agora são {new Date().toLocaleTimeString()}</h3>
-                </div>
-            );
-            ReactDOM.render(element, document.getElementById("posicao1"));
-        }
-
-        setInterval(atualiza, 1000); */
+        /*         function atualiza() {
+                    const element = (
+                        <div>
+                            <h2>Mais um exemplo de JSX, mas com visualização dinâmica</h2>
+                            <h3>Agora são {new Date().toLocaleTimeString()}</h3>
+                        </div>
+                    );
+                    ReactDOM.render(element, document.getElementById("posicao1"));
+                }
+        
+                setInterval(atualiza, 1000); */
 
         class ComponenteClasse extends React.Component {
-             render() {
-                 return (
-                     <div>
-                         <h2>Via classe, olá {this.props.nome}</h2>
-                         <h3>Segunda linda vinda da classe</h3>
-                     </div>
-                 )
-             }
- 
-         }
+            constructor() {
+                super();
+                this.state = {
+                    nome: "Rogério",
+                    idade: 35
+                }
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>Via classe, olá {this.state.nome} você tem {this.state.idade}</h2>
+                        <h3>Segunda linda vinda da classe</h3>
+                    </div>
+                )
+            }
+
+        }
 
         ReactDOM.render(
-            <Componente nome = "Rogerio"/>,
+            <Componente nome="Rogerio" />,
             document.getElementById("posicao1")
         );
 
         ReactDOM.render(
-            <ComponenteClasse nome = "Rogerio"/>,
+            <ComponenteClasse/>,
             document.getElementById("posicao2")
         );
 
