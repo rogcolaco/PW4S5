@@ -14,14 +14,16 @@
     <div id="posicao1"></div>
     <div id="posicao2"></div>
 
-    <script type = "text/babel">
-            function Componente() {
-                return (
-                    <h2>Saída do componente gerado por função</h2>
-                )
-            }
+    <script type="text/babel">
 
-        function atualiza() {
+        /*PRIMEIRA FUNÇÃO ACONTECE*/
+        function Componente(props) {
+            return (
+                <h2>Olá {props.nome}</h2>
+            )
+        }
+        /*ATUALIZA A CADA SEGUNDO (VER LINHA 35)*/
+/*         function atualiza() {
             const element = (
                 <div>
                     <h2>Mais um exemplo de JSX, mas com visualização dinâmica</h2>
@@ -31,29 +33,29 @@
             ReactDOM.render(element, document.getElementById("posicao1"));
         }
 
-        setInterval(atualiza,1000);
+        setInterval(atualiza, 1000); */
 
-        /* class ComponenteClasse extends React.Component {
+        class ComponenteClasse extends React.Component {
              render() {
                  return (
                      <div>
-                         <h2>Saida de componente gerado pela classe</h2>
+                         <h2>Via classe, olá {this.props.nome}</h2>
                          <h3>Segunda linda vinda da classe</h3>
                      </div>
                  )
              }
  
-         }*/
+         }
 
         ReactDOM.render(
-            <Componente />,
+            <Componente nome = "Rogerio"/>,
             document.getElementById("posicao1")
         );
 
-        /*ReactDOM.render(
-            <ComponenteClasse />,
+        ReactDOM.render(
+            <ComponenteClasse nome = "Rogerio"/>,
             document.getElementById("posicao2")
-        );*/
+        );
 
     </script>
 </body>
