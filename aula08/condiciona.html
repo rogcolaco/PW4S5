@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content="IE=edge">
+    <title>Teste com React - aula 26/11</title>
+    <meta name="viewport" content="width=device-width, initial-scale =1">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="posicao"></div>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    dia: true
+                }
+            }
+
+            //FORMA CONDICIONAL 1
+            /*render(){
+                console.log(this.state.dia);
+
+                if(this.state.dia){
+                    return(
+                        <h2>Bom dia!</h2>
+                    )
+                } else {
+                    return(
+                        <h2>Bom Noite!</h2>
+                    )
+                }
+            }*/
+
+            //FORMA CONDICIONAL 2
+            /*render(){
+                let resposta;
+
+                if(this.state.dia){
+                    resposta =<h2>Bom dia!</h2>
+                } else {
+                    resposta =<h2>Bom Noite!</h2>
+                }
+
+                return resposta
+            }*/
+
+            //FORMA CONDICIONAL 3
+            /*render(){
+                return(
+                    this.state.dia ? <h2>Bom dia!</h2> : <h2>Bom Noite!</h2>
+                )
+                
+            }*/
+
+            //FORMA CONDICIONAL 4
+
+            acao = () => {
+                this.setState({dia: !this.state.dia})
+            }
+            render() {
+                console.log(this.state.dia && <h2>Bom dia!</h2>)
+                
+                return (
+                    <div>
+                        {this.state.dia && <h2>Bom dia!</h2>}
+                        {!this.state.dia && <h2>Bom Noite!</h2>}
+                        <button onClick={this.acao}>Alternar</button>
+                    </div>
+                )
+
+            }
+        }
+
+
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById("posicao")
+        );
+
+    </script>
+
+
+</body>
+
+</html>
